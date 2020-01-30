@@ -1,4 +1,4 @@
-package com.up.domain.services;
+package com.up.domain.service;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,7 +14,7 @@ import io.micronaut.data.model.Page;
 import io.micronaut.data.model.Pageable;
 
 @Singleton
-public class TaskService {
+public class TaskService implements ITaskService{
     
     protected final ITaskRepository TaskRepository;
 
@@ -51,6 +51,7 @@ public class TaskService {
         return this.TaskRepository.update(data);
     }
 
+    @Override
     public Task delete(String id) {
         Task p = this.TaskRepository.findById(id).orElse(null);;
         this.TaskRepository.deleteById(id);
