@@ -32,7 +32,7 @@ public @Data class Task {
 
     @NotNull
     @Column(name = "description", nullable = false)
-    private String name;
+    private String description;
 
     @NotNull
     @Column(name = "creation_date", nullable = false)
@@ -41,6 +41,6 @@ public @Data class Task {
     @NotNull
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private TaskStatusType value;
+    private TaskStatusType status;
 
 }

@@ -45,7 +45,7 @@ public class TaskController {
     }
 
     @Post() 
-    public Task insert(@Valid final Task data) {
+    public Task insert(final Task data) {
         return this.TaskService.save(data);
     }
 

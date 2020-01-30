@@ -1,5 +1,6 @@
 package com.up.domain.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -8,6 +9,7 @@ import java.util.stream.StreamSupport;
 import javax.inject.Singleton;
 
 import com.up.domain.model.Task;
+import com.up.domain.model.Task.TaskStatusType;
 import com.up.infraestructure.repository.ITaskRepository;
 
 import io.micronaut.data.model.Page;
@@ -43,6 +45,8 @@ public class TaskService implements ITaskService{
     public Task save(Task data) {
         UUID uuid = UUID.randomUUID();
         data.setId(uuid.toString());
+        data.setCreationDate(new Date().getTime());
+        data.setStatus(TaskStatusType.TODO);
         return this.TaskRepository.save(data);
     }
 
